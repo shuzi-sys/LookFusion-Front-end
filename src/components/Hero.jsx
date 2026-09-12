@@ -6,8 +6,8 @@ function Hero() {
         <p className="lujo">y Lujo</p>
 
         <div className="botones">
-          <button className="about">Acerca de nosotros</button>
-          <button className="reservar">Reservar</button>
+          <a href="#about-us" className="about">Acerca de nosotros</a>
+          <a href="#reservar" className="reservar">Reservar</a>
         </div>
       </div>
 

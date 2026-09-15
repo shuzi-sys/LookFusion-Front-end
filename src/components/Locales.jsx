@@ -3,7 +3,10 @@ import TiendaCard from './TiendaCard';
 function Locales() {
   return (
     <section className="Locales">
+
+      <div><h2 className="Section-Header"> Nuestros locales </h2></div>
       <ul className="Tiendas">
+        <div className="TiendaCardWrapper"> 
         <TiendaCard
           imagen="/img/escaparatetienda1.jpg"
           nombreClase="Tienda1"
@@ -11,6 +14,8 @@ function Locales() {
           horario="Lunes a Sábados · 10:30AM - 8PM"
           telefono="011 2162-7288"
         />
+        </div>
+        <div className="TiendaCardWrapper"> 
         <TiendaCard
           imagen="/img/escaparatetienda2.jpg"
           nombreClase="Tienda2"
@@ -18,6 +23,7 @@ function Locales() {
           horario="Lunes a Sábados · Horarios alternos"
           telefono="Numero alterno"
         />
+        </div>
       </ul>
     </section>
   );

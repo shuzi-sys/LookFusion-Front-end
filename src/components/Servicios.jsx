@@ -4,6 +4,7 @@ import { IconoTijera, IconoBrocha, IconoSalud } from './Iconos';
 function Servicios() {
   return (
     <section className="Servicios">
+      <div><h2 className="Section-Header">Nuestros servicios</h2></div>
       <ul className="lista-servicios">
         <ServicioCard
           icono={<IconoTijera />}

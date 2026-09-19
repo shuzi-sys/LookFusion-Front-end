@@ -1,0 +1,6 @@
+import { useScroll, useTransform } from "framer-motion";
+
+function useScrollGradientAngle(ref, offset, angleRange){
+    const {scrollYProgress} = useScroll({target:ref, offset});
+    return useTransform(scrollYProgress, [0,1], angleRange);
+}

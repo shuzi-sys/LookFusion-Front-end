@@ -1,10 +1,10 @@
 import TiendaCard from './TiendaCard';
-
+import SectionHeader from './SectionHeader';
 function Locales() {
   return (
     <section className="Locales">
 
-      <div><h2 className="Section-Header"> Nuestros locales </h2></div>
+<SectionHeader>Nuestros locales</SectionHeader>
       <ul className="Tiendas">
         <div className="TiendaCardWrapper"> 
         <TiendaCard

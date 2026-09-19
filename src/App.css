@@ -8,17 +8,44 @@ body {
     margin: 0;
 }
 
+@keyframes caerNav{
+    from{
+        transform:translateY(-50%, -200px);
+        opacity:0;
+    }
+    to{
+        transform:translateY(-50%, 0);
+        opacity:1;
+    }
+}
+
 .UpperNavBar {
-      position: relative;
+    border-radius:0px;
+      position: fixed;
     z-index: 10;
     display: flex;
     flex-direction:row;
     align-items: center;
-    padding: 10px 20px;
-    background:black;
+    justify-content:center;
+    background:linear-gradient(245deg, #000000, #0a0f08);
     color:black;
-    height: 10vh;
-    box-shadow: 0 4px 8px -2px rgba(0, 255, 85, 0.3);
+    top: 0;
+    left:50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 8vh;
+    box-shadow: 0 4px 8px 2px rgba(1, 63, 13, 0.3);
+    transition: width .3s ease, top .3s ease, border-radius .3s ease;
+        animation: caerNav 0.8s ease-in forwards;
+        font-family: "Inter", system-ui, sans-serif;
+        z-index: 15;
+}
+
+.UpperNavBar.scrolled{
+    width: 90vw;
+    border-radius:100px;
+    top:10px;
+    background:linear-gradient(0deg, #000000, #0a0f08);
 }
 
     .UpperNavBar .NavBarButtons {
@@ -41,24 +68,69 @@ body {
     }
 
     .UpperNavBar .UpperBarLogo {
-        height: 10vmin;
-        width: 10vmin;
+        height: 8vmin;
+        width: 8vmin;
         border-radius: 100%;
         object-fit: cover;
     }
 
+.UpperNavBar .NavBarButtons .NavBarReserva{
+        font-weight: 500;
+    font-size: 1.1rem;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    text-align: center;
+     border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 16px 28px;
+    color: black;
+    display: inline-block;
+    background: linear-gradient(135deg, #35522c, #4d7941);
+}
 
+.UpperNavBar .NavBarButtons .NavBarReserva:hover{
+  background: linear-gradient(135deg, #5ca257,#24391e);
+    box-shadow: 0 6px 30px rgba(50, 255, 23, 0.7);
+}
 
 .hero {
     display: flex;
     width: 100%;
-    height: 90vh;
-    flex-direction: row;
+    height: 100vh;
+    flex-direction: ROW;
+    background: black;
+    position: relative;
+    overflow:hidden;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height: 15%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.918), transparent);
+    pointer-events: none;
+    z-index:10;
+}
+
+@keyframes caer{
+    from{
+        transform:translateY(-200px);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
 }
 
 .hero .info {
+    animation: caer 0.8s ease-in forwards;
     width: 33.333%;
-    background-color: black;
+    background:linear-gradient(135deg, #000000, #051700);
     color: white;
     display: flex;
     flex-direction: column;
@@ -68,14 +140,14 @@ body {
 
 .hero .poder {
     font-family: 'Bebas Neue', sans-sherif;
-    font-size: 10rem;
+    font-size: 10.5rem;
     letter-spacing: 4px;
 }
 
 .hero .lujo {
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    font-size: 6.5rem;
+    font-size:7rem;
     letter-spacing: 2px;
     color: #4F7942;
 }
@@ -89,14 +161,15 @@ gap: 10px;
 }
 
 .hero .botones a{
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 1.1rem;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     text-align: center;
      border: none;
     border-radius: 25px;
     cursor: pointer;
-    padding: 12px 24px;
+    padding: 16px 28px;
 
     display: inline-block;
     text-decoration: none;
@@ -151,14 +224,40 @@ gap: 10px;
     display: flex;
     flex-direction: column;
 background: linear-gradient(135deg, #000000, #182514);
+    position: relative;
+    overflow:hidden;
 }
 
-.Section-Header{
+.Servicios::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 15%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.918), transparent);
+    pointer-events: none;
+    z-index:10;
+}
+
+.Servicios::after{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height: 15%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.918), transparent);
+    pointer-events: none;
+    z-index:10;
+}
+.SectionHeader{
     height: 10%;
     color: azure;
     text-align: center;
     width: 100%; 
     font-size: 3.4rem;
+    padding-top: 100px;
 }
 
 .Servicios .lista-servicios{
@@ -266,8 +365,11 @@ background: linear-gradient(180deg, #000000, #0f180d);
 }
 
 .integrantecard-nombre{
-    -webkit-text-stroke: 1px black;
-    color: green;
+        background: linear-gradient(245deg, silver, black);
+    background-clip: text;
+    -webkit-background-clip: text; /* necesario para compatibilidad con Chrome/Safari */
+    color: transparent;
+    -webkit-text-fill-color: transparent; /* refuerzo para navegadores WebKit */
     position:absolute;
     bottom: 20px;
     width: 100%;

@@ -19,7 +19,7 @@ export function Navbar(){
         <img className="UpperBarLogo" alt="LookFusion" src="/img/LookFusionLogo.jpg" />
       </a>
       <ul className="NavBarButtons">
-        <li><a className="NavBarReserva" href="Reservas">Reservar</a></li>
+        <li><a className="NavBarReserva" href="/reservar">Reservar</a></li>
         <li><a href="Servicios">Precios</a></li>
         <li><a href="Equipo">Equipo</a></li>
         <li><a href="Locales">Locales</a></li>

@@ -7,7 +7,7 @@ function Hero() {
 
         <div className="botones">
           <a href="#about-us" className="about">Acerca de nosotros</a>
-          <a href="#reservar" className="reservar">Reservar</a>
+          <a href="#reservas" className="reservar">Reservar</a>
         </div>
       </div>
 

@@ -27,7 +27,6 @@ body {
     flex-direction:row;
     align-items: center;
     justify-content:center;
-    background:linear-gradient(245deg, #000000, #0a0f08);
     color:black;
     top: 0;
     left:50%;
@@ -39,7 +38,10 @@ body {
         animation: caerNav 0.8s ease-in forwards;
         font-family: "Inter", system-ui, sans-serif;
         z-index: 15;
-}
+    background:linear-gradient(245deg, #000000, #0a0f08);
+
+    }
+
 
 .UpperNavBar.scrolled{
     width: 90vw;
@@ -130,12 +132,32 @@ body {
 .hero .info {
     animation: caer 0.8s ease-in forwards;
     width: 33.333%;
-    background:linear-gradient(135deg, #000000, #051700);
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 5%;
+    overflow:hidden;
+}
+
+
+.hero .info::before{
+    content:"";
+    width:100%;
+    height:100%;
+    position: absolute;
+    z-index: inherit;
+    top:50%;
+    left:50%;
+    z-index:-1;
+transform: translate(-50%, -50%) scale(1);
+        background:linear-gradient(135deg, #000000, #051700);
+        transition: transform 0.6s ease;
+}
+
+.hero .info:hover::before{
+    transform: translate(-50%, -50%) scale(2);
+    background:linear-gradient(135deg,#082300,black);
 }
 
 .hero .poder {
@@ -310,7 +332,7 @@ background: linear-gradient(180deg, #000000, #0f180d);
     flex-direction:column;
     width: 100%;
     height: 100vh;
-    background: black;
+    background: red;
     
 }
 
@@ -321,7 +343,8 @@ background: linear-gradient(180deg, #000000, #0f180d);
     justify-content: center;      /* centra el conjunto si no llena todo el ancho */
     align-content: center;        /* centra verticalmente si hay varias filas */
     align-items: center;   
-        gap: 12vw;
+    background:;
+        gap: 5vw;
     width: 100%;
     height: 100%;
 }

@@ -1,3 +1,74 @@
-.Form{
-    background:red;
+.FormBox{
+    position: fixed;
+    top:50%;
+    left:50%;
+    display:flex;
+    flex-direction:column;
+    background:rgb(207, 220, 220);
+    width: 35%;
+    height: 35vh;
+    list-style:none;
+    border-radius: 30px;
+}
+
+.FormBox .FormBox-Upper{
+    display:flex;
+    min-height:0;
+    position: relative;
+    height: 15%;
+    justify-content: center;
+}
+
+.FormBox .FormBox-Upper::after{
+    content:"";
+    position:absolute;
+    bottom: 0;
+    width:100%;
+    height:3px;
+    background:black;
+}
+
+.FormBox .FormBox-Upper .Steps{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    color: black;
+    gap: 1vw;
+    font-size: 1.3rem;
+    list-style: none;
+    align-items: center;
+    
+}
+
+.FormBox .FormBox-Lower{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 5vh;
+    min-height:0;
+    height: 85%;
+}
+
+.FormBox .FormBox-Lower .Form{
+    display:flex;
+    flex-direction:column;
+    list-style: none;
+    font-size: 1.6rem;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;
+}
+
+.Box{
+    height: 100%;
+    border-radius: 10px;
+}
+
+.Active{
+    color: black;
+}
+
+.Inactive{
+    color:rgba(178, 178, 178, 0.889);
 }

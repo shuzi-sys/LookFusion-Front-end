@@ -13,6 +13,7 @@ function FormData({info, setInfo}){
         required placeholder="Nombre" 
         value={info.name}
         onChange={(e) => setInfo({...info, name:e.target.value})}
+        className="Box"
         ></input></li>
         <li>ingresá tu número de teléfono (opcional):</li>
         <li><input 
@@ -20,6 +21,7 @@ function FormData({info, setInfo}){
         placeholder="+54 9 11 xxxx-xxxx"
         value={info.phone}
         onChange={(e) => setInfo({...info, phone:e.target.value})}
+        className="Box"
         ></input></li>
     </ul>);
 }
@@ -168,7 +170,7 @@ return(
             {steps.map((step)=> (
                 <li
                     key={step.id}
-                    className={step.id === currentStep ? "Active" : ""}
+                    className={step.id === currentStep ? "Active" : "Inactive"}
                 >
                     {step.name}
                 </li>
@@ -176,7 +178,6 @@ return(
             <li><button onClick={(e) =>currentStep < 4 ? SetCurrentStep(currentStep+1) : null}>Siguiente</button></li>
             <li><button onClick={(e) =>currentStep > 1 ? SetCurrentStep(currentStep-1) : null}>Anterior</button></li>
         </ul>
-
         </div>
         <div className="FormBox-Lower">
             {currentStep === 1 && <FormData info={info} setInfo={setInfo} />}
@@ -184,7 +185,7 @@ return(
             {currentStep === 3 && <FormBarber barber={barber} setBarber={setBarber}/>}
             {currentStep === 4 && <FormDate date={date} setDate={setDate}/>}
         </div>
-    </div>    
+    </div>
 </div>
 );
 }

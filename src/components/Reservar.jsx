@@ -120,7 +120,7 @@ function FormDate({date, setDate}){
         <li><select
             value={date.month}
             required
-            onChange={changeMonth(e)}
+            onChange={(e) => changeMonth(e)}
             >
                 <option value="">Mes</option>
                 {months.map((month) => (

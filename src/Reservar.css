@@ -1,74 +1,160 @@
-.FormBox{
+.FormBox {
     position: fixed;
-    top:50%;
-    left:50%;
-    display:flex;
-    flex-direction:column;
-    background:rgb(207, 220, 220);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    background: rgb(207, 220, 220);
     width: 35%;
+    min-width: 380px;
     height: 35vh;
-    list-style:none;
+    min-height: 420px;
     border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
 }
 
-.FormBox .FormBox-Upper{
-    display:flex;
-    min-height:0;
+/* --- Header con los pasos --- */
+.FormBox .FormBox-Upper {
+    display: flex;
+    min-height: 0;
     position: relative;
-    height: 15%;
+    height: 18%;
     justify-content: center;
+    align-items: center;
+    background: white;
 }
 
-.FormBox .FormBox-Upper::after{
-    content:"";
-    position:absolute;
+.FormBox .FormBox-Upper::after {
+    content: "";
+    position: absolute;
     bottom: 0;
-    width:100%;
-    height:3px;
-    background:black;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #4F7942, transparent);
 }
 
-.FormBox .FormBox-Upper .Steps{
-    display:flex;
+.FormBox .FormBox-Upper .Steps {
+    display: flex;
     flex-direction: row;
     justify-content: center;
     color: black;
-    gap: 1vw;
-    font-size: 1.3rem;
+    gap: 2vw;
+    font-size: 1rem;
+    font-weight: 600;
     list-style: none;
     align-items: center;
-    
+    width: 100%;
+    padding: 0 20px;
 }
 
-.FormBox .FormBox-Lower{
-    display:flex;
+.Active {
+    color: #2c4423;
+    position: relative;
+}
+
+.Active::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #4F7942;
+}
+
+.Inactive {
+    color: rgba(0, 0, 0, 0.35);
+    transition: color 0.3s ease;
+}
+
+/* --- Botones Siguiente / Anterior --- */
+.Steps li button {
+    margin-left: auto;
+    border: none;
+    background: #4F7942;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.Steps li button:hover {
+    background: #3d5e33;
+    transform: translateY(-1px);
+}
+
+.Steps li button:active {
+    transform: translateY(0);
+}
+
+/* --- Contenido del paso actual --- */
+.FormBox .FormBox-Lower {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding-top: 5vh;
-    min-height:0;
-    height: 85%;
+    padding-left: 5%;
+    padding-right: 5%;
+    min-height: 0;
+    height: 82%;
+    overflow-y: auto;
 }
 
-.FormBox .FormBox-Lower .Form{
-    display:flex;
-    flex-direction:column;
+.FormBox .FormBox-Lower .Form {
+    display: flex;
+    flex-direction: column;
     list-style: none;
-    font-size: 1.6rem;
-    font-weight: 700;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #222;
     justify-content: center;
     align-items: center;
+    gap: 12px;
+    width: 100%;
 }
 
-.Box{
-    height: 100%;
+.FormBox .FormBox-Lower .Form li {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+}
+
+/* --- Inputs y selects --- */
+.Box,
+.Form select {
+    width: 100%;
+    height: 42px;
+    padding: 0 14px;
     border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    background: white;
+    color: #222;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.Active{
-    color: black;
+.Box:focus,
+.Form select:focus {
+    border-color: #4F7942;
+    box-shadow: 0 0 0 3px rgba(79, 121, 66, 0.2);
 }
 
-.Inactive{
-    color:rgba(178, 178, 178, 0.889);
+.Form select[multiple] {
+    height: auto;
+    min-height: 90px;
+    padding: 8px;
+}
+
+.Form select option {
+    padding: 6px;
 }

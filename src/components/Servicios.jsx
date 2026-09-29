@@ -31,7 +31,7 @@ function Servicios() {
   });
 
   return (
-    <section ref={ref} className="Servicios" style={{ filter: `brightness(${brillo})` }}>
+    <section id="servicios" ref={ref} className="Servicios" style={{ filter: `brightness(${brillo})` }}>
       <SectionHeader>Nuestros servicios</SectionHeader>
       <ul className="lista-servicios">
         <ServicioCard

@@ -2,10 +2,10 @@ function OpinionesCardAnon({icono, nombre, opinion, estrellas}){
 return(
     <li className="opinionescardanon">
         <div className="opinionescardanon-upper">
-         <img className="opinionescardanon-icono">
+         <img className="opinionescardanon-icono"
               src={icono}
-              alt=""
-         </img>
+              alt="{nombre}"
+         />
          <div className="opinionescardanon-nombre">{nombre}</div>
          <div className="opinionescardanon-estrellas">
                         {[0,1,2,3,4].map((i) => (

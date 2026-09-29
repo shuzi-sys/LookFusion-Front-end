@@ -30,6 +30,7 @@ function Locales() {
   
   return (
        <section
+       id="locales"
       ref={ref}
       className="Locales"
       style={{ filter: `brightness(${brillo})` }}

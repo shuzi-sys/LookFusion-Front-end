@@ -29,8 +29,8 @@ function Equipo(){
   });
 
 return(
-<section ref={ref} className="Equipo" style={{ filter: `brightness(${brillo})` }}>
-<SectionHeader>Nuestros integrantes</SectionHeader>
+<section id="equipo" ref={ref} className="Equipo" style={{ filter: `brightness(${brillo})` }}>
+<SectionHeader>Nuestro Equipo</SectionHeader>
 <ul className="integrantes">
 <IntegranteCard imagen="/img/placeholder.jpg" nombre="Franco"/>
 <IntegranteCard imagen="/img/placeholder.jpg" nombre="Matias"/>

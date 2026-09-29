@@ -20,10 +20,10 @@ export function Navbar(){
       </a>
       <ul className="NavBarButtons">
         <li><a className="NavBarReserva" href="/reservar">Reservar</a></li>
-        <li><a href="Servicios">Precios</a></li>
-        <li><a href="Equipo">Equipo</a></li>
-        <li><a href="Locales">Locales</a></li>
-        <li><a href="">Galería</a></li>
+        <li><a href="#servicios">Precios</a></li>
+        <li><a href="#equipo">Equipo</a></li>
+        <li><a href="#locales">Locales</a></li>
+        <li><a href="#opiniones">Opiniones</a></li>
       </ul>
     </nav>
     </>

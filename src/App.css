@@ -56,7 +56,7 @@ body {
         align-items: center;
         justify-content: space-between;
         list-style: none;
-        gap: 12vw;
+        gap: 2.5vw;
         padding-left: 5vw;
     }
 
@@ -488,17 +488,148 @@ background: linear-gradient(180deg, #000000, #0f180d);
     text-align: center;
 }
 
-.Opiniones{
+.Opiniones {
     width: 100%;
     min-height: 100vh;
-    display:flex;
-    flex-direction:row;
-    background: black;
+    padding: 100px 5%;
+    background: linear-gradient(0deg, #000000, #182514);
 }
 
-.Opiniones .Opiniones-List{
+.Opiniones-List {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.Opiniones-Anonim-List {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* --- Tarjeta individual --- */
+.opinionescardanon {
+    list-style: none;
+    width: 320px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(79, 121, 66, 0.3);
+    border-radius: 16px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.opinionescardanon:hover {
+    transform: translateY(-6px);
+    border-color: #4F7942;
+    box-shadow: 0 10px 30px rgba(79, 121, 66, 0.25);
+}
+
+/* --- Parte de arriba: ícono + nombre + estrellas --- */
+.opinionescardanon-upper {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.opinionescardanon-icono {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0; /* evita que el flex lo achique */
+    border: 2px solid #4F7942;
+}
+
+.opinionescardanon-nombre {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+    flex-grow: 1;
+}
+
+.opinionescardanon-estrellas {
+    display: flex;
+    gap: 2px;
+    font-size: 1.1rem;
+    color: #8cdd76;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* --- Texto de la opinión --- */
+.opinionescardanon-opinion {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    font-style: italic;
+}
+
+.Footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 60px 5% 40px;
+    background: linear-gradient(180deg, #000000, #0d0d0d);
+    border-top: 1px solid rgba(79, 121, 66, 0.3);
+}
+
+.FooterLogo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.FooterSlogan {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+    color: white;
+    text-align: center;
+    max-width: 600px;
+}
+
+.lava-red {
+    color: #ff3300;
+    text-shadow: 0 0 15px rgba(255, 51, 0, 0.5);
+    font-style: normal;
+}
+
+.vibrant-green {
+    color: #4F7942;
+    font-style: normal;
+}
+
+.FooterRights {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+}
+
+.FooterDev {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.5px;
+}
+
+.FooterDev .lava-red {
+    font-weight: 600;
+    text-shadow: none; /* acá lo queremos más discreto, sin el glow */
 }
 
 .revelar {

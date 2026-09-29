@@ -1,13 +1,26 @@
-function TiendaCard({ imagen, nombreClase, direccion, horario, telefono }) {
+function TiendaCard({ imagen, nombreClase, alt, direccion, horario, telefono }) {
   return (
-    <li>
-      <img className={nombreClase} src={imagen} alt={nombreClase} />
+    <>
+      <img className={nombreClase} src={imagen} alt={alt} loading="lazy" />
       <ul className="DatosTienda">
-        <li>📌{direccion}</li>
-        <li>📅{horario}</li>
-        <li>📞{telefono}</li>
+        <li>
+          <span className="icon" aria-hidden="true">📌</span>
+          <span>{direccion}</span>
+        </li>
+        {horario && (
+          <li>
+            <span className="icon" aria-hidden="true">📅</span>
+            <span>{horario}</span>
+          </li>
+        )}
+        {telefono && (
+          <li>
+            <span className="icon" aria-hidden="true">📞</span>
+            <span>{telefono}</span>
+          </li>
+        )}
       </ul>
-    </li>
+    </>
   );
 }
 

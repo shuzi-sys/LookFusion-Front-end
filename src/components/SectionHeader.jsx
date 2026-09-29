@@ -1,7 +1,7 @@
 import { useScroll, useTransform, motion} from "framer-motion";
 import { useRef } from "react";
 
-export default function SectionHeader({children}){
+export default function SectionHeader({ children, className = "", style, ...props }){
     const ref = useRef(null);
     const {scrollYProgress} = useScroll({
         target: ref,
@@ -16,8 +16,9 @@ export default function SectionHeader({children}){
     return(
         <div ref={ref}>
         <motion.h2
-        className="SectionHeader"
-        style={{opacity, y, scale}}
+        className={`SectionHeader ${className}`}
+        style={{... style, opacity, y, scale}}
+        {...props}
         >
         {children}
         </motion.h2>

@@ -1,21 +1,10 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from "react";
+import { useScroll, useTransform } from "framer-motion";
 
-/*
-1 - Crear intersectionobserver
-2 - crear funcion callback
-3 - funcion callback(entry) -> adhiere el "." en su css al ser observada
+export function useRevelarScroll(offset = ["start end", "start 30%"]) {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset });
+  const opacidad = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
-*/
-
-function callback(entry){
-  if (entry[0].IsIntersecting){
-    entry[0].target.classList.add("show");
-  }  
-}
-
-export function useScrollReveal(){
-
-    const observer = new IntersectionObserver(callback, [])
-
-
+  return { ref, style: { "--revelar": opacidad } };
 }

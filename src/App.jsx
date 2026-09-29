@@ -13,6 +13,7 @@ function App() {
       <Servicios />
       <Equipo />
       <Locales />
+      <Opiniones />
     </>
   );
 }

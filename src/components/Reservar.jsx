@@ -50,7 +50,7 @@ function FormBarber({barber, setBarber}){
     return (
     <ul className="Form">
     <li>Elegi el Barbero</li>
-    <li><select multiple
+    <li><select
                 value={barber}
                 onChange={(e) => setBarber(e.target.value)}>
             <option value="Andres">Andres</option>
@@ -64,73 +64,16 @@ function FormBarber({barber, setBarber}){
 
 // parsear current month ver cantidad de dias & comparar
 function FormDate({date, setDate}){
-    const today = new Date();
-    const currentMonth = (today.getMonth() + 1);
-    const currentYear = today.getFullYear();
-    const selectedMonth = date.month || currentMonth;
-    // Using day "0" selects the last day of the previous month (that's why we gave current month a +1)
-    // just a number
-    const amountDays = new Date(
-        currentYear,
-        currentMonth,
-        0
-    ).getDate();
-    // Then we map an array with that amount (which we will use to display it on the options)
-    const days = Array.from({length: amountDays}, (_,i) => i+1);
-
-    // these ones are hardcoded because i dont see a reason to calculate them dynamically?
-    const months= [
-        1,2,3,4,5,6,7,8,9,10,11,12
-    ];
-
-    function changeMonth(event){
-       var newMonth = Number(event.target.value + 1);
-       // same technique as before
-       var newAmountDays = new Date(
-        currentYear,
-        newMonth,
-        0
-       ).getDate();
-       // if the selected day doesn't fit then we default it back to blank
-       if (newAmountDays < date.day) {
-        setDate({
-            ...date,
-            month: newMonth,
-            day:""
-        });
-       }
-    }
-    return(
+  const hoy = new Date().toLocaleDateString("en-CA"); // "YYYY-MM-DD" en hora local
+  return (
     <ul className="Form">
-        <li>Elegi el dia</li>
-        <li><select
-        value={date.dia} 
-        required
-        onChange={(e)=> setDate({...date, dia: e.target.value})}
-        >
-            <option value="">Dia</option>
-            {days.map(day => (
-                <option key={day} value={day}>{day}
-                </option>
-            ))}
-            </select>
-            </li>
-
-        <li>Elegi el mes</li>
-        <li><select
-            value={date.month}
-            required
-            onChange={(e) => changeMonth(e)}
-            >
-                <option value="">Mes</option>
-                {months.map((month) => (
-                    <option key={month} value={month}>{month}</option>
-                ))}
-        </select>
-    </li>
-</ul>);
-
-
+      <li>Elegí el día</li>
+      <li>
+        <input type="date" required min={hoy} value={date}
+          onChange={(e) => setDate(e.target.value)} />
+      </li>
+    </ul>
+  );
 }
 
 export function Reservar(){

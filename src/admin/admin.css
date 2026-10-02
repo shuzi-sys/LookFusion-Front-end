@@ -1,0 +1,150 @@
+/* Mobile-first: lo base es celular, los @media agrandan para tablet/escritorio. */
+.admin {
+  --bg: #f6f5f2;
+  --surface: #ffffff;
+  --ink: #1d2428;
+  --muted: #667077;
+  --line: #e2e0da;
+  --accent: #1f5f5b;
+  --accent-ink: #ffffff;
+  --ok: #2e7d4f;
+  --error: #b3261e;
+  --radius: 10px;
+
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.admin *, .admin *::before, .admin *::after { box-sizing: border-box; }
+
+.admin__header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+.admin__header h1 { margin: 0; font-size: 1.25rem; }
+.admin__main { width: 100%; max-width: 860px; margin: 0 auto; padding: 1rem; }
+
+/* Pestañas */
+.tabs { display: flex; gap: 0.25rem; }
+.tab {
+  min-height: 44px;
+  padding: 0 1.1rem;
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.tab--activa { background: var(--accent); color: var(--accent-ink); }
+
+/* Resumen del día */
+.resumen {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.resumen__label, .resumen__detalle { margin: 0; color: var(--muted); font-size: 0.9rem; }
+.resumen__total { margin: 0; font-size: 2rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.resumen__detalle { text-align: right; }
+.resumen__fecha { grid-column: 1 / -1; }
+
+/* Lista de turnos */
+.turnos { display: grid; gap: 0.6rem; margin: 0; padding: 0; list-style: none; }
+.turno {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 0.9rem;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.turno--hecho { opacity: 0.7; border-left: 4px solid var(--ok); }
+.turno__hora { font-size: 1.15rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.turno__info { display: flex; flex-direction: column; min-width: 0; }
+.turno__info span { color: var(--muted); font-size: 0.9rem; }
+.turno__accion, .turno__cobro { grid-column: 1 / -1; }
+.turno__accion { display: flex; gap: 0.5rem; }
+.turno__accion input { flex: 1; min-width: 0; }
+.turno__cobro { color: var(--ok); font-weight: 600; }
+
+/* Controles (grandes, para dedos) */
+.admin input {
+  min-height: 44px;
+  padding: 0 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  color: inherit;
+  font: inherit;
+}
+.btn {
+  min-height: 44px;
+  padding: 0 1.1rem;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.admin :focus-visible { outline: 3px solid #e0a82e; outline-offset: 2px; }
+
+/* Precios */
+.precios {
+  display: grid;
+  gap: 1rem;
+  max-width: 420px;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.campo { display: grid; gap: 0.35rem; font-weight: 600; }
+.campo__input { display: flex; align-items: center; gap: 0.5rem; }
+.campo__input input { flex: 1; min-width: 0; }
+
+/* Mensajes */
+.vacio { padding: 2rem 0; text-align: center; color: var(--muted); }
+.aviso { margin: 0; color: var(--ok); font-weight: 600; }
+.aviso--error { color: var(--error); }
+
+/* Tablet en adelante: el turno pasa a una sola fila */
+@media (min-width: 700px) {
+  .admin__header { padding: 0.75rem 2rem; }
+  .admin__main { padding: 1.5rem 2rem; }
+  .resumen { grid-template-columns: 1fr auto auto; }
+  .resumen__fecha { grid-column: auto; }
+  .resumen__total { font-size: 2.5rem; }
+  .turno { grid-template-columns: 5rem 1fr auto; padding: 1rem 1.25rem; }
+  .turno__accion, .turno__cobro { grid-column: auto; }
+  .turno__accion input { width: 9rem; flex: none; }
+  .turno__hora { font-size: 1.3rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .admin * { transition: none !important; animation: none !important; }
+}

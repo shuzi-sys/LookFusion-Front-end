@@ -45,19 +45,39 @@ function Opiniones(){
                 />
                 <OpinionesCardAnon
                     icono={"/img/placeholder.jpg"}
-                    nombre="Placeholder2"
-                    opinion="Opinionplaceholder lorem ipsum"
-                    estrellas= {3}
+                    nombre="J.B. Cre***"
+                    opinion="saben lo que hacen!! un genio andres jaja"
+                    estrellas= {5}
                 />
                 <OpinionesCardAnon
                     icono={"/img/placeholder.jpg"}
-                    nombre="Placeholder3"
-                    opinion="Opinionplaceholder lorem ipsum"
+                    nombre="Re***"
+                    opinion="voy regularmente desde hace 5 años para cortarme y teñirme de cada idea que se me ocurre, nunca decepciona"
+                    estrellas= {5}
+                />
+                
+                <OpinionesCardAnon
+                    icono={"/img/placeholder.jpg"}
+                    nombre="Sant***"
+                    opinion="Me lo recomendó un amigo porque quería hacerme un corte de un personaje de anime y me dijo que acá seguro me lo hacían bien y pienso volver varias veces más"
+                    estrellas= {5}
+                />
+                
+                <OpinionesCardAnon
+                    icono={"/img/placeholder.jpg"}
+                    nombre="T. Genti*****"
+                    opinion="Todo bien.. solo me teñi pero bien"
                     estrellas= {4}
                 />
             </div>
-            <div className="Opiniones-Ig-List">
-            </div>
+            <p>¿Ya nos visitaste?</p>
+           <a
+  href="https://share.google/SjcYbkKGVrJgHZKEF"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Apoyanos también en Maps
+</a>
         </div>
     </section>
     )

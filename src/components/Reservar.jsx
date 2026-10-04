@@ -69,9 +69,14 @@ function FormDate({date, setDate}){
     <ul className="Form">
       <li>Elegí el día</li>
       <li>
-        <input type="date" required min={hoy} value={date}
-          onChange={(e) => setDate(e.target.value)} />
+        <input type="date" required min={hoy} value={date.day}
+          onChange={(e) => setDate({...date, day:e.target.value})} />
       </li>
+      <li>Elegi la hora</li>
+      <li>
+        <input type="time" min="10:00" max="19:00" step="1800" value={date.time}
+        onChange={(e) => setDate({...date, time:e.target.value})}/>
+        </li>
     </ul>
   );
 }
@@ -98,10 +103,8 @@ const [info, setInfo]= useState({
 const [service, setService]= useState([]);
 const [barber, setBarber]= useState("");
 const [date, setDate]= useState({
-    day: "",
-    month: "",
-    hour:"",
-    minute:""
+    day:"",
+    time:""
 });
     const [currentStep, SetCurrentStep] = useState(1);
 

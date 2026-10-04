@@ -88,7 +88,7 @@ body {
     padding: 16px 28px;
     color: black;
     display: inline-block;
-    background: linear-gradient(135deg, #35522c, #4d7941);
+    background: linear-gradient(135deg, #35522c, #8cdd76);
 }
 
 .UpperNavBar .NavBarButtons .NavBarReserva:hover{
@@ -252,7 +252,9 @@ gap: 10px;
 
 .Servicios{
     width: 100%;
-    height: 130vh;
+    min-height: 100vh;
+    height: auto;
+    padding-bottom: 15%;
     display: flex;
     flex-direction: column;
 background: linear-gradient(135deg, #000000, #182514);
@@ -272,17 +274,7 @@ background: linear-gradient(135deg, #000000, #182514);
     z-index:10;
 }
 
-.Servicios::after{
-    content:"";
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:100%;
-    height: 15%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.918), transparent);
-    pointer-events: none;
-    z-index:10;
-}
+
 .SectionHeader{
     position: relative;
     height: 10%;
@@ -298,76 +290,132 @@ background: linear-gradient(135deg, #000000, #182514);
 
 .Servicios .lista-servicios{
     display: flex;
-    flex-direction: row;
-        flex-wrap: wrap;              /* si no entran todos en una fila, pasan a la siguiente */
-    justify-content: center;      /* centra el conjunto si no llena todo el ancho */
-    align-content: center;        /* centra verticalmente si hay varias filas */
-    align-items: center;   
-    gap: 12vw;
-    margin-bottom: 10%;
-    width: 100%;
-    height: 100%;
+    flex-wrap: wrap;
+    justify-content: center;      /* centra aunque haya 2 o 3 tarjetas */
+    gap: clamp(1rem, 3vw, 2.5rem);
+    width: min(1100px, 100% - 2rem);
+    margin: 2rem auto 0;
+    padding: 0;
+    list-style: none;
 }
 
-.Servicios .lista-servicios .serviciocard{
+/* ---------- Tarjeta ---------- */
+.Servicios .lista-servicios .serviciocard {
+    position: relative;
+    flex: 0 1 280px;
+    min-height: 260px;
     display: flex;
-    width: 20%;
-    height: 45%;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-background: linear-gradient(180deg, #000000, #0f180d);
-    color:white;
-    row-gap: 5px;
-    border-radius: 10%;
-    text-align:center;
-    flex-direction:column;
-        list-style: none;
-    border:2px ridge #4F7942;
+    gap: 0.6rem;
+    padding: 2rem 1.5rem;
+    overflow: hidden;
+    list-style: none;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.9), rgba(15, 24, 13, 0.95));
+    border: 1px solid rgba(79, 121, 66, 0.7);
+    border-radius: 18px;            /* px fijos: el % deformaba las esquinas */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.Servicios .lista-servicios .serviciocard:hover{
-        box-shadow: 0 6px 30px rgba(77, 255, 136, 0.7);
+.Servicios .lista-servicios .serviciocard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #4dff88, transparent);
+    opacity: 0.55;
+    transition: opacity 0.25s ease;
 }
 
-.serviciocard-icono{
-
+@media (hover: hover) {
+    .Servicios .lista-servicios .serviciocard:hover {
+        transform: translateY(-6px);
+        border-color: #4dff88;
+        box-shadow: 0 10px 36px rgba(77, 255, 136, 0.35);
+    }
+    .Servicios .lista-servicios .serviciocard:hover::before { opacity: 1; }
 }
 
-.serviciocard-precio{
+.serviciocard :is(h2, h3, h4) {     /* el título, sea el heading que uses */
+    margin: 0;
+    font-size: 1.3rem;
+    letter-spacing: 0.04em;
+}
+ 
+.serviciocard-icono {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 0.4rem;
+    border-radius: 50%;
     font-size: 1.8rem;
-    color: rgb(194, 206, 206);
+    color: #4dff88;
+    background: rgba(77, 255, 136, 0.08);
+    border: 1px solid rgba(77, 255, 136, 0.25);
 }
-
-.serviciocard-duracion{
-    font-size: 1.2rem;
+.serviciocard-icono :is(svg, img) { width: 55%; height: 55%; }
+ 
+.serviciocard-precio {
+    font-size: 1.9rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: #d8ecd8;
+}
+ 
+.serviciocard-duracion {
+    padding: 0.2rem 0.85rem;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 999px;
+}
+ 
+/* ---------- Celular: una tarjeta por fila ---------- */
+@media (max-width: 600px) {
+    .Servicios .lista-servicios .serviciocard {
+        flex-basis: 100%;
+        max-width: 360px;
+        min-height: auto;
+    }
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+    .Servicios .lista-servicios .serviciocard,
+    .Servicios .lista-servicios .serviciocard::before { transition: none; }
 }
 
 .Equipo{
     display:flex;
     flex-direction:column;
     width: 100%;
-    height: 130vh;
+    min-height:100vh;
+    align-items:center;
     background: linear-gradient(180deg, #000000, #182514);
     
 }
 
 .Equipo .integrantes{
+    padding-top: 100px;
         display: flex;
     flex-direction: row;
         flex-wrap: wrap;              /* si no entran todos en una fila, pasan a la siguiente */
     justify-content: center;      /* centra el conjunto si no llena todo el ancho */
     align-content: center;        /* centra verticalmente si hay varias filas */
     align-items: center;   
-    background:;
         gap: 5vw;
     width: 100%;
-    height: 100%;
 }
 
-.Equipo .integrantes .integrantecard{
+.Equipo .integrantes .integrantecard {
     width: 20vw;
     height: 40vh;
-    background:red;
     position: relative;
     overflow: visible;
     z-index: 0;
@@ -394,6 +442,14 @@ background: linear-gradient(180deg, #000000, #0f180d);
     opacity: 1;
 }
 
+.integrantecard-imgwrap {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
 .integrantecard-image{
     width: 100%;
     height:100%;
@@ -403,16 +459,17 @@ background: linear-gradient(180deg, #000000, #0f180d);
 }
 
 .integrantecard-nombre{
-        background: linear-gradient(245deg, silver, black);
-    background-clip: text;
-    -webkit-background-clip: text; /* necesario para compatibilidad con Chrome/Safari */
-    color: transparent;
-    -webkit-text-fill-color: transparent; /* refuerzo para navegadores WebKit */
-    position:absolute;
+    position: absolute;
     bottom: 20px;
     width: 100%;
     text-align: center;
-    font-size: 1.9rem;
+    font-size: 3rem;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    color: white;   
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.9),
+        0 0 20px rgba(0, 0, 0, 1);
 }
 
 
@@ -421,7 +478,6 @@ background: linear-gradient(180deg, #000000, #0f180d);
     flex-direction: column;
     min-height: 100vh;
     width: 100%;
-    padding: 4rem 1.5rem;
     background: linear-gradient(270deg, #000000, #182514);
 }
 
@@ -492,7 +548,6 @@ background: linear-gradient(180deg, #000000, #0f180d);
 .Opiniones {
     width: 100%;
     min-height: 100vh;
-    padding: 100px 5%;
     background: linear-gradient(0deg, #000000, #182514);
 }
 
@@ -501,6 +556,47 @@ background: linear-gradient(180deg, #000000, #0f180d);
     flex-direction: column;
     gap: 40px;
     margin-top: 50px;
+    align-items: center;
+    justify-content: center
+}
+
+.Opiniones-List p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.Opiniones-List a {
+    text-align:center;
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: white;
+    background: linear-gradient(135deg, #35522c, #4d7941);
+    border: none;
+    border-radius: 25px;
+    padding: 14px 32px;
+    cursor: pointer;
+    width: 10%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.Opiniones-List a:hover {
+    background: linear-gradient(135deg, #5ca257, #24391e);
+    box-shadow: 0 6px 25px rgba(79, 121, 66, 0.6);
+    transform: translateY(-2px);
+}
+
+.Opiniones-List a:active {
+    transform: translateY(0);
 }
 
 .Opiniones-Anonim-List {
@@ -577,19 +673,19 @@ background: linear-gradient(180deg, #000000, #0f180d);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 12px;
     width: 100%;
-    padding: 60px 5% 40px;
+    padding: 28px 5% 20px;
     background: linear-gradient(180deg, #000000, #0d0d0d);
     border-top: 1px solid rgba(79, 121, 66, 0.3);
 }
 
 .FooterLogo {
-    width: 70px;
-    height: 70px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 .FooterSlogan {
@@ -618,7 +714,7 @@ background: linear-gradient(180deg, #000000, #0f180d);
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.5);
     letter-spacing: 0.5px;
-    margin-top: 10px;
+    margin-top: 0px;
 }
 
 .FooterDev {
@@ -631,6 +727,35 @@ background: linear-gradient(180deg, #000000, #0f180d);
 .FooterDev .lava-red {
     font-weight: 600;
     text-shadow: none; /* acá lo queremos más discreto, sin el glow */
+}
+
+.FooterSocials {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 40px;              /* tamaño cómodo para tocar en celular */
+    padding: 0 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    border: 1px solid rgba(79, 121, 66, 0.5);
+    border-radius: 999px;
+    transition: color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+@media (hover: hover) {
+    .FooterSocials:hover {
+        color: #4dff88;
+        border-color: #4dff88;
+        box-shadow: 0 0 20px rgba(77, 255, 136, 0.25);
+    }
+}
+
+.FooterSocials:focus-visible {
+    outline: 2px solid #4dff88;
+    outline-offset: 3px;
 }
 
 .revelar {

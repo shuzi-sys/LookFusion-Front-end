@@ -32,11 +32,9 @@ return(
 <section id="equipo" ref={ref} className="Equipo" style={{ filter: `brightness(${brillo})` }}>
 <SectionHeader>Nuestro Equipo</SectionHeader>
 <ul className="integrantes">
-<IntegranteCard imagen="/img/placeholder.jpg" nombre="Franco"/>
-<IntegranteCard imagen="/img/placeholder.jpg" nombre="Matias"/>
-<IntegranteCard imagen="/img/placeholder.jpg" nombre="Ely"/>
-<IntegranteCard imagen="/img/placeholder.jpg" nombre="Angel"/>
-<IntegranteCard imagen="/img/placeholder.jpg" nombre="Andy"/>
+<IntegranteCard imagen="/img/MatiasFixed.png" nombre="Matias"/>
+<IntegranteCard imagen="/img/ElyFixed.png" nombre="Ely"/>
+<IntegranteCard imagen="/img/AndyFixed.png" nombre="Andy"/>
 </ul>
 </section>
 );

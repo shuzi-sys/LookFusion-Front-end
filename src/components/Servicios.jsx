@@ -36,24 +36,117 @@ function Servicios() {
       <ul className="lista-servicios">
         <ServicioCard
           icono={<IconoTijera />}
-          nombre="Corte de Cabello"
+          nombre="Corte de Cabello (Varon/Mujer)"
           descripcion="(Tijera y/o maquina)"
-          precio="$15000"
+          precio="$20.000"
+          duracion="30 minutos"
+        />
+        <ServicioCard
+          icono={<IconoTijera />}
+          nombre="Corte de Cabello (Jubilado)"
+          descripcion="(Tijera y/o maquina)"
+          precio="$18.000"
           duracion="30 minutos"
         />
         <ServicioCard
           icono={<IconoBrocha />}
-          nombre="Tintura"
+          nombre="Tinturas de raiz"
           descripcion="(Fantasia y/o colores naturales)"
-          precio="$25000 cada 5CM"
+          precio="A partir de $45.000"
           duracion="2 ~ 4 horas (segun largo)"
         />
         <ServicioCard
-          icono={<IconoSalud />}
-          nombre="Tratamientos"
-          descripcion="trat 1/ trat 2/ trat3"
-          precio="$25000"
-          duracion="1 hora"
+          icono={<IconoBrocha />}
+          nombre="Tintura general / Mechas"
+          descripcion="(Fantasia y/o colores naturales)"
+          precio="[Consultar]"
+          duracion="2 ~ 4 horas (segun largo)"
+        />
+        <ServicioCard
+          icono={<IconoBrocha />}
+          nombre="Permanente"
+          descripcion="Rizos u ondas"
+          precio="A partir de 60.000 [Consultar segun largo]"
+          duracion="2 ~ 4 horas (segun largo)"
+        />
+        <ServicioCard
+          icono={<IconoBrocha />}
+          nombre="Manicura"
+          descripcion="Rizos u ondas"
+          precio="[Comun 25.000$][Semipermanente 28.000$]"
+          duracion="2 ~ 4 horas (segun largo)"
+        />
+        
+        <ServicioCard
+          icono={<IconoBrocha />}
+          nombre="Pedicura"
+          descripcion="Rizos u ondas"
+          precio="$30.000"
+          duracion="2 ~ 4 horas (segun largo)"
+        />
+        
+        <ServicioCard
+          icono={<IconoBrocha />}
+          nombre="Depilacion de cejas"
+          descripcion="Rizos u ondas"
+          precio="$8.000"
+          duracion="2 ~ 4 horas (segun largo)"
+        />
+        
+        <ServicioCard
+          icono={<IconoBrocha />}
+          nombre="Depilacion de rostro completo"
+          descripcion="Rizos u ondas"
+          precio="$25.000"
+          duracion="2 ~ 4 horas (segun largo)"
+        />
+        
+        <ServicioCard
+          icono={<IconoBrocha />}
+          nombre="Masajes de cuerpo completo"
+          descripcion="Rizos u ondas"
+          precio="[Consultar]"
+          duracion="2 ~ 4 horas (segun largo)"
+        />
+        
+        <ServicioCard
+          icono={<IconoBrocha />}
+          nombre="Kinesiologia con aparatos"
+          descripcion="Rizos u ondas"
+          precio="[Consultar]"
+          duracion="2 ~ 4 horas (segun largo)"
+        />
+        
+        <ServicioCard
+          icono={<IconoBrocha />}
+          nombre="Extenciones"
+          descripcion="De cabello y/o pestañas"
+          precio="[Consultar]"
+          duracion="2 ~ 4 horas (segun largo)"
+        />
+        
+        <ServicioCard
+          icono={<IconoBrocha />}
+          nombre="Peinados especiales"
+          descripcion="Fiestas / Bodas"
+          precio="[Consultar]"
+          duracion="2 ~ 4 horas (segun largo)"
+        />
+        
+        <ServicioCard
+          icono={<IconoBrocha />}
+          nombre="Trensas boxeadoras/africanas/seccionadas"
+          descripcion="Rizos u ondas"
+          precio="[Consultar]"
+          duracion="2 ~ 4 horas (segun largo)"
+        />
+        
+        <ServicioCard
+          icono={<IconoBrocha />}
+          nombre="Maquillaje de fiesta"
+          descripcion="Rizos u ondas"
+          precio="[Consultar]"
+          duracion="2 ~ 4 horas (segun largo)"
         />
       </ul>
     </section>

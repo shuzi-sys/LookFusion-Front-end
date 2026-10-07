@@ -16,6 +16,7 @@ function FormData({info, setInfo}){
         className="Box"
         ></input></li>
         <li>ingresá tu número de teléfono (opcional):</li>
+        <li className="Recomendacion">(te recomendamos que pongas un numero para avisarte cualquier inconveniente)</li>
         <li><input 
         type="tel" 
         placeholder="+54 9 11 xxxx-xxxx"
@@ -49,7 +50,7 @@ function FormService({service, setService}){
 function FormBarber({barber, setBarber}){
     return (
     <ul className="Form">
-    <li>Elegi el Barbero</li>
+    <li>Elegi el Peluquero</li>
     <li><select
                 value={barber}
                 onChange={(e) => setBarber(e.target.value)}>
@@ -81,20 +82,29 @@ function FormDate({date, setDate}){
   );
 }
 
+function FormConfirm({info,service,barber,date})
+{
+    return(
+        <ul className="Form">
+            <li>Revisa tus datos cuidadosamente y confirma tu turno</li>
+            <li>Nombre: {info.name}</li>
+            <li>Teléfono: {info.phone ? info.phone : "No especificado" }</li>
+            <li>Servicio/s: {service.join(", ")}</li>
+            <li>Peluquero: {barber}</li>
+            <li>Dia: {date.day}</li>
+            <li>Horario: {date.time}</li>
+            <li><a className="Agendarturno">Agendar turno</a></li>
+        </ul>
+    )
+}
 export function Reservar(){
 const steps = [
     {id: 1, name:"Datos"},
     {id: 2, name:"Servicio"},
     {id: 3, name:"Barbero"},
-    {id: 4, name:"Fecha"}
+    {id: 4, name:"Fecha"},
+    {id: 5, name:"Confirmar"}
 ];
-const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    services: [],
-    barber: "",
-    date: ""
-});
 
 const [info, setInfo]= useState({
     name: "",
@@ -121,7 +131,7 @@ return(
                     {step.name}
                 </li>
             ))}
-            <li><button onClick={(e) =>currentStep < 4 ? SetCurrentStep(currentStep+1) : null}>Siguiente</button></li>
+            <li><button onClick={(e) =>currentStep < 5 ? SetCurrentStep(currentStep+1) : null}>Siguiente</button></li>
             <li><button onClick={(e) =>currentStep > 1 ? SetCurrentStep(currentStep-1) : null}>Anterior</button></li>
         </ul>
         </div>
@@ -130,6 +140,8 @@ return(
             {currentStep === 2 && <FormService service={service} setService={setService}/>}
             {currentStep === 3 && <FormBarber barber={barber} setBarber={setBarber}/>}
             {currentStep === 4 && <FormDate date={date} setDate={setDate}/>}
+            {currentStep === 5 && <FormConfirm info={info} service={service} barber={barber} date={date}/>}
+            
         </div>
     </div>
 </div>

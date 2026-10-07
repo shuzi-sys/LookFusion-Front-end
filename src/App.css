@@ -288,12 +288,28 @@ background: linear-gradient(135deg, #000000, #182514);
     padding-top: 100px;
 }
 
-.Servicios .lista-servicios{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;      /* centra aunque haya 2 o 3 tarjetas */
+.SectionHeader::after {
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 550px;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #46c11a 50%,
+        transparent
+    );
+    box-shadow: 0 0 12px 1px rgba(79, 121, 66, 1);
+}
+.Servicios .lista-servicios {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: clamp(1rem, 3vw, 2.5rem);
-    width: min(1100px, 100% - 2rem);
+    width: min(1400px, 100% - 2rem);
     margin: 2rem auto 0;
     padding: 0;
     list-style: none;
@@ -484,7 +500,7 @@ background: linear-gradient(135deg, #000000, #182514);
 .Locales .Tiendas{
     flex-wrap: wrap;
     align-items: stretch;
-    margin-top: 3rem;
+    margin-top: 6rem;
     display:flex;
     flex-direction:row;
     justify-content: center;
@@ -494,7 +510,7 @@ background: linear-gradient(135deg, #000000, #182514);
 
 .Locales .Tiendas .TiendaCardWrapper {
     --accent: 121, 255, 134;
-    width: min(100%, 420px);         /* en vez de 30vw */
+    width: min(100%, 580px);         /* en vez de 30vw */
     display: flex;
     flex-direction: column;
     overflow: hidden;
